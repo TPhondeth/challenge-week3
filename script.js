@@ -10,5 +10,14 @@ function writePassword() {
 
 }
 
+// Declaring variables for character types
+let lowerCase = "abcdefghijklmnopqrstuvwxyz";
+let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let number  = "0123456789";
+let symbol = "!#$%&()*+-/<=>?@[]{}_";
+
+// Functions for random character types
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
