@@ -10,33 +10,33 @@ function writePassword() {
 
 }
 
-// Declaring variables for character types
-let lowerCase = "abcdefghijklmnopqrstuvwxyz";
-let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let number  = "0123456789";
-let symbol = "!#$%&()*+-/<=>?@[]{}_";
+// Variables for character types
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const number  = "0123456789";
+const symbol = "!#$%&()*+-/<=>?@[]{}_";
 
-// Function for random lower case
+// Define Function randomLowerCase
 function randomLowerCase() {
     return lowerCase.charAt(Math.round(Math.random) * lowerCase.length);
 }
 
-// Function for random upper case
+// Define Function randomUpperCase
 function randomUpperCase() {
     return upperCase.charAt(Math.round(Math.random) * upperCase.length);
 }
 
-// Function for random number
+// Define Function randomNumber
 function randomNumber() {
     return number.charAt(Math.round(Math.random) * number.length);
 }
 
-// Function for random symbol
+// Define Function randomSymbol
 function randomSymbol() {
     return symbol.charAt(Math.round(Math.random) * symbol.length);
 }
 
-// Function to generate password
+// Define Function generatePassword
 function generatePassword() {
     let length = window.prompt("Choose a password of at least 8 characters and no more than 128 characters.");
 }
