@@ -11,46 +11,42 @@ function writePassword() {
 }
 
 // Function to get random lower case
-function getRandomLower() {
+function randomLower() {
     const lowerCase = "abcdefghijklmnopqrstuvwxyz";
     return lowerCase[Math.round(Math.random() * lowerCase.length)];
 }
 // Function to get random upper case
-function getRandomUpper() {
+function randomUpper() {
     const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return upperCase[Math.round(Math.random() * upperCase.length)];
 }
 // Function to get random number
-function getRandomNumber() {
-    const number  = "0123456789";
-    return number[Math.round(Math.random() * number.length)];
+function randomNumber() {
+    const numbers  = "0123456789";
+    return numbers[Math.round(Math.random() * numbers.length)];
 }
 
 // Function to get random symbol
-function getRandomSymbol() {
+function randomSymbol() {
     const symbols = "!#$%&()*+-/<=>?@[]{}_";
     return symbols[Math.round(Math.random() * symbols.length)];
 }
 
 // Function to generate password
 function generatePassword() {
-    let pw = prompt("Choose a password of at least 8 characters and no more than 128 characters.");
+    let passLength = prompt("Please choose a number between 8 to 128");
 
-    // Validate minimum length of password
-    if (pw === "" || pw.length < 8) {
-        alert("Password length must be at least 8 characters.");
-    }
-    // Validate maximum length of password
-    if (pw.length > 128) {
-        alert("Password length must not exceed 128 characters.");
+    // Validate if user input meets password criteria
+    if (passLength === "" || passLength < 8 || passLength > 128 || isNaN(passLength)) {
+        alert("Password length must be between 8 to 128 characters.");
     }
     else {
-        const hasLower = confirm("Would you like a Lower Case character?");
-        const hasUpper = confirm("Would you like an Upper Case character?");
-        const hasNumber = confirm("Would you like a Number?");
-        const hasSymbol = confirm("Would you like a Symbol?");
+        let lowerC = confirm("Would you like Lowercase Letters?");
+        let upperC = confirm("Would you like Uppercase Letters?");
+        let numb = confirm("Would you like Numbers in your password?");
+        let symb = confirm("Would you like and Special Characters?");
 
-    return passwordGenerator(hasLower, hasUpper, hasNumber, hasSymbol);
+    return passwordGenerator(passLength, lowerC, upperC, numb, symb);
     }
 }
 
