@@ -39,7 +39,7 @@ function generatePassword() {
     if (passwordLength === "" || passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
         alert("Password length must be between 8 to 128 characters.");
     }
-    // Verify user choice true or false
+    // Confirm user choice true or false
     else {
         let lower = confirm("Would you like Lowercase Letters?");
         let upper = confirm("Would you like Uppercase Letters?");
@@ -52,16 +52,17 @@ function generatePassword() {
 
 // Generates password based on user input
 function passwordGenerator(length, lower, upper, number, symbol) {
-    let assignedPass = "";
+    let securePass = "";
     
+    // For loop to choose password characters based on user input
     for (var i = 0; i <= length; i++) {
-        assignedPass += lower ? randomLower() : "";
-        assignedPass += upper ? randomUpper() : "";
-        assignedPass += number ? randomNumber() : "";
-        assignedPass += symbol ? randomSymbol() : "";
+        securePass += lower ? randomLower() : "";
+        securePass += upper ? randomUpper() : "";
+        securePass += number ? randomNumber() : "";
+        securePass += symbol ? randomSymbol() : "";
 }
 
-    return assignedPass.slice(0, length)
+    return securePass.slice(0, length);
 }
 
 // Add event listener to generate button
