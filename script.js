@@ -25,7 +25,6 @@ function randomNumber() {
     const numbers  = "0123456789";
     return numbers[Math.round(Math.random() * numbers.length)];
 }
-
 // Function to get random symbol
 function randomSymbol() {
     const symbols = "!#$%&()*+-/<=>?@[]{}_";
@@ -34,22 +33,41 @@ function randomSymbol() {
 
 // Function to generate password
 function generatePassword() {
-    let passLength = prompt("Please choose a number between 8 to 128");
+    let passwordLength = prompt("Please choose a number between 8 to 128");
 
     // Validate if user input meets password criteria
-    if (passLength === "" || passLength < 8 || passLength > 128 || isNaN(passLength)) {
+    if (passwordLength === "" || passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
         alert("Password length must be between 8 to 128 characters.");
     }
     else {
-        let lowerC = confirm("Would you like Lowercase Letters?");
-        let upperC = confirm("Would you like Uppercase Letters?");
-        let numb = confirm("Would you like Numbers in your password?");
-        let symb = confirm("Would you like and Special Characters?");
-
-    return passwordGenerator(passLength, lowerC, upperC, numb, symb);
+        let lower = confirm("Would you like Lowercase Letters?");
+        let upper = confirm("Would you like Uppercase Letters?");
+        let number = confirm("Would you like Numbers in your password?");
+        let symbol = confirm("Would you like and Special Characters?");
+    
+    return passwordGenerator(passwordLength, lower, upper, number, symbol);
     }
 }
 
+// Generates password based on user input
+function passwordGenerator(length, lower, upper, number, symbol) {
+    let assignedPass = "";
+    
+    for (var i = 0; i <= length; i++) {
+        assignedPass += lower ? randomLower() : "";
+        assignedPass += upper ? randomUpper() : "";
+        assignedPass += number ? randomNumber() : "";
+        assignedPass += symbol ? randomSymbol() : "";
+}
+
+    return assignedPass
+        .slice(0, length)
+        .split("")
+        .sort(() => {
+        Math.random() * -0.5;
+        })
+        .join("");
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
